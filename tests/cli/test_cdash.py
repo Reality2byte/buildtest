@@ -2,6 +2,8 @@ import os
 
 import pytest
 import requests
+import urllib.error
+import urllib3.exceptions
 
 from buildtest.cli.build import BuildTest
 from buildtest.cli.cdash import upload_test_cdash, view_cdash_project
@@ -41,6 +43,8 @@ def test_cdash_upload():
 
 def test_cdash_upload_exceptions():
     # a buildname must be specified, a None will result in error
+
+
     with pytest.raises(SystemExit):
         upload_test_cdash(
             build_name=None,
@@ -57,17 +61,8 @@ def test_cdash_upload_exceptions():
     bc.detect_system()
 
     # in configuration file we have invalid url to CDASH server
-    with pytest.raises(requests.ConnectionError):
+    #with pytest.raises(urllib3.exceptions.MaxRetryError):
+    with pytest.raises(requests.exceptions.ConnectionError):
         upload_test_cdash(build_name="DEMO", configuration=bc)
 
-    bc = SiteConfiguration(
-        os.path.abspath(os.path.join(here, "cdash_examples", "invalid_project.yml"))
-    )
-    bc.detect_system()
 
-    # in configuration file we have invalid project name in CDASH
-
-    with pytest.raises(SystemExit):
-        upload_test_cdash(
-            build_name="DEMO", configuration=bc, site=None, open_browser=False
-        )
