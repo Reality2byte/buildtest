@@ -1276,7 +1276,8 @@ def buildspec_validate_command(
 
     if exception_counter > 0:
         console.print(f"[red]{exception_counter} buildspecs failed to validate")
-        sys.exit(1)
+        raise SystemExit
+        # sys.exit(1)
 
     console.print("[green]All buildspecs passed validation!!!")
 
