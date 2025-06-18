@@ -146,7 +146,7 @@ def upload_test_cdash(
     r = requests.get(upload_url)
     # output of text property is the following:
     # '<cdash version="3.0.3">\n  <status>OK</status>\n  <message></message>\n  <md5>d41d8cd98f00b204e9800998ecf8427e</md5>\n</cdash>\n'
-    #if not re.search("<status>OK</status>", r.text):
+    # if not re.search("<status>OK</status>", r.text):
     #    console.print("[red]Malformed XML, please check if project exist on CDASH!")
     #    sys.exit(f"Invalid URL: {upload_url}")
 
