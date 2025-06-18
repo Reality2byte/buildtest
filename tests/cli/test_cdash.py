@@ -24,7 +24,7 @@ def test_cdash_view():
 
 @pytest.mark.cli
 def test_cdash_upload():
-    pass # remove line later since cdash upload is not working
+
     cmd = BuildTest(
         buildspecs=[os.path.join(BUILDTEST_ROOT, "tutorials", "shell_examples.yml")],
         configuration=configuration,
