@@ -19,12 +19,13 @@ import tempfile
 
 here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, here)
+from pathlib import Path
+
 from buildtest import BUILDTEST_COPYRIGHT, BUILDTEST_VERSION
 from buildtest.cli.buildspec import BuildspecCache
 from buildtest.config import SiteConfiguration
 from buildtest.defaults import BUILDTEST_ROOT, DEFAULT_SETTINGS_FILE, VAR_DIR
 from buildtest.utils.file import is_dir
-from pathlib import Path
 
 HERE = Path(__file__).parent
 
