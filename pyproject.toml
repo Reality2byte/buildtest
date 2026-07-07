@@ -79,7 +79,7 @@ split_on_trailing_comma = true
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-addopts = "-vra -x --durations=20 -vv"
+addopts = "-vra --maxfail=5 --durations=20 -vv"
 testpaths = ["tests"]
 markers = [
     "schema: run schema tests",

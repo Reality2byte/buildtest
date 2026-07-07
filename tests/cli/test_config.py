@@ -201,6 +201,8 @@ def test_file_traversal_limit_in_config():
     # exception can be raised when buildspec is invalid
     with pytest.raises(SystemExit):
         buildspec_validate_command(
-            buildspecs=[os.path.join(BUILDTEST_ROOT, "tutorials")],
+            buildspecs=[
+                os.path.join(BUILDTEST_ROOT, "tutorials", "invalid_executors.yml")
+            ],
             configuration=configuration,
         )
