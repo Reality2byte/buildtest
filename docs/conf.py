@@ -24,6 +24,11 @@ from buildtest.cli.buildspec import BuildspecCache
 from buildtest.config import SiteConfiguration
 from buildtest.defaults import BUILDTEST_ROOT, DEFAULT_SETTINGS_FILE, VAR_DIR
 from buildtest.utils.file import is_dir
+from pathlib import Path
+
+HERE = Path(__file__).parent
+
+(HERE / "api").mkdir(exist_ok=True)
 
 # set BUILDTEST_ROOT environment that is generally set by 'source setup.sh'
 os.environ["BUILDTEST_ROOT"] = here
